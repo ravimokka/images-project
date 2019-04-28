@@ -1,0 +1,113 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style type="text/css">
+
+
+    .note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+
+.btn-cancel
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    <!--background: #0062cc;-->
+    <!--color: #fff;-->
+}
+
+
+
+
+#login{
+        margin-left: 500px;
+    margin-top: 30px;
+}
+</style>
+<form method="POST" action="/signup">
+
+      {% csrf_token %}
+     <div class="container register-form" style="padding-left:200px; padding-right:200px;">
+            <div class="form" style="margin-top:60px">
+                    <div class="note">
+                        <p>Account Register Form </p>
+                    </div>
+
+                    <div class="form-content" >
+                        <p style="color:red; text-align:-webkit-center">{{ massage }}</p>
+                        <div class="row">
+                            <div class="col-md-4" style="margin-left:110px;">
+                                <div class="form-group">
+                                    <input type="text" name="firstname" class="form-control" placeholder="FirstName *" value="{{ firstname }}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="lastname"  class="form-control" placeholder="LastName *" value="{{ lastname }}"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="user_name"  class="form-control" placeholder="Username  *" value="{{ user_name }}"/>
+                                </div>
+                                 <div class="form-group">
+                                    <input type="number" name="phone_no"  class="form-control" placeholder="Phone Number *"  value="{{ phone_no }}"/>
+                                </div>
+                            </div>
+
+                              <div class="col-md-4">
+                                   <div class="form-group">
+                                       <input type="text" name="emailid"  class="form-control" placeholder="Email Id *" value="{{ emailid }}"/>
+                                        </div>
+                                <div class="form-group">
+                                    <input type="text" name="date_birth"  class="form-control" placeholder="Date of Birth  *" value="{{ date_birth }}"/>
+                                </div>
+
+                                    <div class="form-group">
+                                        <input type="password" name="password"  class="form-control" placeholder="Password *" value="{{ password }}"/>
+                                    </div>
+                                        <div class="form-group">
+                                            <input type="password" name="confirm_password"  class="form-control" placeholder="Confirm password*" value="{{ confirm_password }}"/>
+                                        </div>
+                                </div>
+                        </div>
+
+                                <button type="submit" class="btnSubmit" style="margin-left:255px;">Sign Up</button>
+
+
+                                <!--<form method="get" action="/">-->
+                                    <!--<button type="submit" name="cancel" value="" class="btn btn-danger btn-cancel"-->
+                                    <!--style="margin-top:-52px; margin-left:339px;" onclick="window.location.href = '/';">Cancel</button>-->
+                                <!--</form>-->
+                        </div>
+           </div>
+     </div>
+
+  </form>
+<button type="submit" name="cancel" value="" class="btn btn-danger btn-cancel"
+                                    style="margin-top:0px; margin-left:540px;" onclick="window.location.href = '/';">Cancel</button>

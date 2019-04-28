@@ -1,0 +1,71 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+{% if data %}
+<div class="container">
+	<div class="row">
+       <div class="col-md-7 " style="margin-top:30px">
+<div class="panel panel-default">
+  <div class="panel-heading" style="text-align:-webkit-center; background-color:cyan;">  <h4 >{{ data.profile_text }}</h4></div>
+   <div class="panel-body">
+    <div class="box box-info">
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="center"> {% load static %}
+                         {% if data.room_flag == "Room1" %}
+                         <img src="{% static 'r1.jpeg' %}"  style="width:209%">
+                         {% elif data.room_flag == "Room2" %}
+                         <img src="{% static 'r5.jpg' %}"  style="width:209%">
+                         {% elif data.room_flag == "Room3" %}
+                         <img src="{% static 'r3.jpg' %}"  style="width:209%">
+                         {% elif data.room_flag == "Room4" %}
+                         <img src="{% static 'r4.jpg' %}"  style="width:209%">
+                         {% endif %}
+                <input id="profile-image-upload" class="hidden" type="file">
+
+                     </div>
+
+              <br>
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h4 style="color:#00b1b1;, margin-top:50px"></h4></span>
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+
+<div class="clearfix"></div>
+<div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital " >Booking Room No :</div><div class="col-sm-7">{{ data.room_no_text }}</div>
+<div class="clearfix"></div>
+<div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital " >Day Price :</div><div class="col-sm-7">{{ data.day_price }}</div>
+<div class="clearfix"></div>
+<div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital " >Day Price Discount :</div><div class="col-sm-7">{{ data.day_price_dis  }} %</div>
+<div class="clearfix"></div>
+<div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital " >Month Price :</div><div class="col-sm-7">{{ data.month_price }}</div>
+<div class="clearfix"></div>
+<div class="bot-border"></div>
+                <div class="col-sm-5 col-xs-6 tital " >Month Price Discount :</div><div class="col-sm-7">{{ data.mont_price_dis  }} %</div>
+
+
+          </div>
+
+
+        </div>
+
+
+    </div>
+    </div>
+</div>
+<button type="submit" name="back" value="{{ back }}" class="btn btn-primary" onclick="window.location.href = '/homepage';" style="margin-top:40px">Back</button>
+
+   </div>
+</div>
+
+{% endif %}
+
+

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>WebApp</title>
+    {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         <script src="{% static 'index.js' %}"></script>
+</head>
+<style type="text/css">
+
+
+    .note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.logout{
+        margin-left: 1068px;
+        margin-bottom: 10px;
+         margin-top: -29px;
+
+
+}
+
+#btn-accept {
+  background-color: #3bd5ed;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+#btn-accept {border-radius: 4px;}
+#btn-accept {padding: 6px 18px;}
+
+.gtext {
+    color: black;
+    text-shadow: 2px 2px 5px blue;
+    font-size: 140%;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
+
+.btn-lear {
+  position: absolute;
+  <!--top:100%;-->
+  <!--left: 13%;-->
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color:#09dbed;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: -webkit-xxx-large;
+  color: #fbffff;
+   text-shadow: 2px 2px #FF0000;
+}
+
+.center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  <!--font-size: -webkit-xxx-large;-->
+  color: #fbffff;
+   text-shadow: 2px 2px #50fcfc;
+   font-size: 30px;
+}
+
+</style>
+
+
+{% if data %}
+
+<body style="background-color:#b3f3fc">
+
+
+
+<div class="container">
+    <div class="test">
+    <div style="margin-top: 50px;">
+        <form method='get' action='/'>
+            <button type="submit" class="btn btn-primary logout" >Logout </button>
+        </form>
+<table class="table table-bordered note">
+                       <thead>
+                          <tr>
+                              <th style="text-align:-webkit-center; text-shadow: 2px 2px; font-size: xx-large;">{{ data.wel_home_text }}</th>
+
+
+                          </tr>
+                        </thead>
+
+    </table>
+
+{% load static %}
+        <!--<button><img src="{% static 'image.png' %}" style="width:1140px; hight:600px;"/></button>-->
+        <div>
+            <img src="{% static 'hotal.jpg' %}"  style="height: 400px;width:1140px;">
+            <div class="centered">{{ data.hotel_name }}</div>
+
+        </div>
+
+        <div class="row">
+
+              <div class="column">
+                  <form method='get' action='/learn_more'>
+                <img src="{% static 'r1.jpeg' %}"  style="width:100%">
+                <button onclick="window.location.href = '/learn_more';" class="btn-lear"
+                        name="lear" value="lear1" style="margin-top:-65px;margin-left:20px">{{ data.learn_text }}</button>
+                      <div class="center" style="margin-top:-140px;margin-left:151px">{{ data.home_text }}</div>
+                  </form>
+                 <!--<img src="{% static 'r2.jpeg' %}"  style="width:100%">-->
+              </div>
+            <div class="column">
+                <form method='get' action='/learn_more'>
+                <img src="{% static 'r5.jpg' %}"  style="width:100%">
+                <!--<img src="{% static 'r3.jpg' %}"  style="width:100%">-->
+                 <button onclick="window.location.href = '/learn_more';" class="btn-lear"
+                        name="lear" value="lear2" style="margin-top:-65px;margin-left:20px">{{ data.learn_text }}</button>
+                    <div class="center" style="margin-top:-140px;margin-left:151px">{{ data.home_text }}</div>
+                    </form>
+              </div>
+
+              <div class="column">
+                  <form method='get' action='/learn_more'>
+                 <img src="{% static 'r3.jpg' %}"  style="width:100%">
+                  <button onclick="window.location.href = '/learn_more';" class="btn-lear"
+                          name="lear" value="lear3" style="margin-top:-65px;margin-left:20px">{{ data.learn_text }}</button>
+                      <div class="center" style="margin-top:-140px;margin-left:151px">{{ data.home_text }}</div>
+                 <!--<img src="{% static 'r4.jpg' %}"  style="width:100%">-->
+                  </form>
+              </div>
+            <div class="column">
+                <form method='get' action='/learn_more'>
+                 <img src="{% static 'r4.jpg' %}"  style="width:100%">
+                <button onclick="window.location.href = '/learn_more';" class="btn-lear"
+                        name="lear" value="lear4" style="margin-top:-65px;margin-left:20px">{{ data.learn_text }}</button>
+                    <div class="center" style="margin-top:-140px;margin-left:151px">{{ data.home_text }}</div>
+                 <!--<img src="{% static 'r4.jpg' %}"  style="width:100%">-->
+                </form>
+              </div>
+        </div>
+
+
+
+</div>
+  <!--<table class="table table-bordered note">-->
+                       <!--<thead>-->
+                          <!--<tr>-->
+                              <!--<th style="text-align:-webkit-center;"> www.rainbow.com    rainbow@gmail.com</th>-->
+
+
+                          <!--</tr>-->
+                        <!--</thead>-->
+
+      <!--</table>-->
+
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+{% endif %}

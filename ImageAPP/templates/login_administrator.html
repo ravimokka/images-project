@@ -1,0 +1,80 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style type="text/css">
+
+
+    .note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+.form-control{
+    border-radius:1.5rem;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    <!--background: #0062cc;-->
+    color: #fff;
+}
+
+#login{
+        margin-left: 500px;
+    margin-top: 30px;
+}
+.back{
+        margin-left: 1150px;
+        margin-bottom: 2px;
+         margin-top: 50px;
+
+
+}
+
+
+</style>
+
+<form method="post" action="/homepage">
+  {% csrf_token %}
+<div class="container register-form" style="padding-left:200px; padding-right:200px;">
+            <div class="form" style="margin-top:60px">
+                <div class="note">
+                    <p>Login Administrator</p>
+                </div>
+                <div class="form-content" >
+                     <p style="color:red; text-align:-webkit-center">{{ massage }}</p>
+                    <div class="row" style="margin-left:-110px;">
+                        <div class="col-md-4" style="margin-left:300px;">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username *" value="" name="username"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password*" value="" name="password"/>
+                            </div>
+                        </div>
+                         <button type="submit" class="btnSubmit btn btn-primary" style="margin-left:350px;">Login</button>
+                         <!--<button type="submit" class="btnSubmit" style="margin-left:350px;">Create account</button>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+<form method="get" action="/signup">
+    <button type="submit" class="btnSubmit btn btn-info" id="create-ac" style="margin-top:-5px; margin-left:540px;">Create your new account</button>
+</form>
