@@ -31,7 +31,7 @@ def Signup_page(request):
                               phone=Phone, email_id=Email, date_birth=Date_birth, password=Password,
                               confirm_password=Confirm_password)
                 data.save()
-                return render(request, 'sign_up.html', {'massage': ''})
+                return render(request, 'login_administrator.html')
             else:
 
                 return render(request, 'sign_up.html', {'massage': 'Please fill in the all fields','firstname':First_Name,
