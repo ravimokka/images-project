@@ -65,14 +65,20 @@ def HomePage(request):
                                                                               'hotel_data_id__home_text',
                                                                               'hotel_data_id__wel_home_text')
                     print(data)
+                    if data:
+                        hotel_name = data[0]['hotel_data_id__hotel_name']
+                        learn_text = data[0]['hotel_data_id__learn_text']
+                        home_text = data[0]['hotel_data_id__home_text']
+                        wel_home_text = data[0]['hotel_data_id__wel_home_text']
+                        d_text = {'hotel_name':hotel_name,'learn_text':learn_text, 'home_text':home_text, 'wel_home_text':wel_home_text}
+                        context = {'data': d_text}
 
-                    hotel_name = data[0]['hotel_data_id__hotel_name']
-                    learn_text = data[0]['hotel_data_id__learn_text']
-                    home_text = data[0]['hotel_data_id__home_text']
-                    wel_home_text = data[0]['hotel_data_id__wel_home_text']
-                    d_text = {'hotel_name':hotel_name,'learn_text':learn_text, 'home_text':home_text, 'wel_home_text':wel_home_text}
-                    context = {'data': d_text}
-                    return render(request, 'home_page.html', context)
+                        return render(request, 'home_page.html', context)
+                    else:
+                        d_text = {'hotel_name': 'Five Star Hotel Rainbow', 'learn_text': 'Learn More', 'home_text':'View Room',
+                                  'wel_home_text': 'Welcome Hotel Rainbow'}
+                        context = {'data': d_text}
+                        return render(request, 'home_page.html', context)
                 else:
                     return render(request, 'login_administrator.html', {'massage':'Invalid Username and Password'})
             else:
@@ -84,14 +90,19 @@ def HomePage(request):
                                                                   'hotel_data_id__learn_text',
                                                                   'hotel_data_id__home_text',
                                                                   'hotel_data_id__wel_home_text')
-
-        hotel_name = data[0]['hotel_data_id__hotel_name']
-        learn_text = data[0]['hotel_data_id__learn_text']
-        home_text = data[0]['hotel_data_id__home_text']
-        wel_home_text = data[0]['hotel_data_id__wel_home_text']
-        d_text = {'hotel_name': hotel_name, 'learn_text': learn_text, 'home_text': home_text,'wel_home_text':wel_home_text}
-        context = {'data': d_text}
-        return render(request, 'home_page.html', context)
+        if data:
+            hotel_name = data[0]['hotel_data_id__hotel_name']
+            learn_text = data[0]['hotel_data_id__learn_text']
+            home_text = data[0]['hotel_data_id__home_text']
+            wel_home_text = data[0]['hotel_data_id__wel_home_text']
+            d_text = {'hotel_name': hotel_name, 'learn_text': learn_text, 'home_text': home_text,'wel_home_text':wel_home_text}
+            context = {'data': d_text}
+            return render(request, 'home_page.html', context)
+        else:
+            d_text = {'hotel_name': 'Five Star Hotel Rainbow', 'learn_text': 'Learn More', 'home_text': 'View Room',
+                      'wel_home_text': 'Welcome Hotel Rainbow'}
+            context = {'data': d_text}
+            return render(request, 'home_page.html', context)
 
 
 
@@ -104,41 +115,67 @@ def Learnmore(request):
         if Value == 'lear1':
             Room_Value = 'Room1'
             data = Hotelrooms.objects.filter(room_flag=Room_Value)
-            data = serializers.serialize('json', data)
-            room_data = json.loads(data)
-            Lear_data = room_data[0]['fields']
-            print(data)
-            context = {'data': Lear_data}
-            print(context)
-            return render(request, 'learn_more.html',context)
+            if data:
+                data = serializers.serialize('json', data)
+                room_data = json.loads(data)
+                Lear_data = room_data[0]['fields']
+                print(data)
+                context = {'data': Lear_data}
+                print(context)
+                return render(request, 'learn_more.html',context)
+            else:
+                context = {'data': {'profile_text':'View Room Profile', 'room_no_text':200 ,'day_price':500, 'day_price_dis':10,
+                                    'month_price':15000, 'mont_price_dis':30, 'room_flag':'Room1'}}
+                print(context)
+                return render(request, 'learn_more.html', context)
+
         elif Value =='lear2':
             Room_Value = 'Room2'
             data = Hotelrooms.objects.filter(room_flag=Room_Value)
-            data = serializers.serialize('json', data)
-            room_data = json.loads(data)
-            Lear_data = room_data[0]['fields']
-            print(data)
-            context = {'data': Lear_data}
-            print(context)
-            return render(request, 'learn_more.html', context)
+            if data:
+                data = serializers.serialize('json', data)
+                room_data = json.loads(data)
+                Lear_data = room_data[0]['fields']
+                print(data)
+                context = {'data': Lear_data}
+                print(context)
+                return render(request, 'learn_more.html', context)
+            else:
+                context = {'data': {'profile_text': 'View Room Profile', 'room_no_text': 201, 'day_price': 600,
+                                    'day_price_dis': 10,
+                                    'month_price': 16000, 'mont_price_dis': 30, 'room_flag': 'Room2'}}
+                print(context)
+                return render(request, 'learn_more.html', context)
         elif Value =='lear3':
             Room_Value = 'Room3'
             data = Hotelrooms.objects.filter(room_flag=Room_Value)
-            data = serializers.serialize('json', data)
-            room_data = json.loads(data)
-            Lear_data = room_data[0]['fields']
-            print(data)
-            context = {'data': Lear_data}
-            print(context)
-            return render(request, 'learn_more.html', context)
+            if data:
+                data = serializers.serialize('json', data)
+                room_data = json.loads(data)
+                Lear_data = room_data[0]['fields']
+                print(data)
+                context = {'data': Lear_data}
+                print(context)
+                return render(request, 'learn_more.html', context)
+            else:
+                context = {'data': {'profile_text': 'View Room Profile', 'room_no_text': 202, 'day_price': 700,
+                                    'day_price_dis': 10,
+                                    'month_price': 17000, 'mont_price_dis': 30, 'room_flag': 'Room3'}}
+                print(context)
+                return render(request, 'learn_more.html', context)
         elif Value =='lear4':
             Room_Value = 'Room4'
             data = Hotelrooms.objects.filter(room_flag=Room_Value)
-            data = serializers.serialize('json', data)
-            room_data = json.loads(data)
-            Lear_data = room_data[0]['fields']
-            print(data)
-            context = {'data': Lear_data}
+            if data:
+                data = serializers.serialize('json', data)
+                room_data = json.loads(data)
+                Lear_data = room_data[0]['fields']
+                print(data)
+                context = {'data': Lear_data}
+                print(context)
+                return render(request, 'learn_more.html', context)
+            context = {'data': {'profile_text': 'View Room Profile', 'room_no_text': 200, 'day_price': 800,
+                                'day_price_dis': 10,
+                                'month_price': 18000, 'mont_price_dis': 30, 'room_flag': 'Room4'}}
             print(context)
             return render(request, 'learn_more.html', context)
-

@@ -23,6 +23,7 @@ class Hotelrooms(models.Model):
 
 class Homepagetext(models.Model):
     hotel_data = models.ForeignKey(Hotelrooms, on_delete=models.CASCADE)
+    room_flag_tex = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
         return self.hotel_data

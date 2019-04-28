@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ImagesProject.wsgi.application'
 DATABASES = {
     'default': {
 'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'image_database' ,
+        'NAME': 'images_database' ,
         'USER' : 'root',
         'PASSWORD': 'raveendra@7',
         'HOST' : 'localhost',
